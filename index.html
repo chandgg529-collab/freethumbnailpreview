@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeThumbnailPreview Lite - Open Source YouTube Thumbnail Previewer</title>
+  <meta name="description" content="Free open-source YouTube thumbnail tester. Preview your custom thumbnails across desktop and mobile layouts in real-time.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Official Suite Banner -->
+  <header class="top-banner">
+    <div class="banner-content">
+      <span>🚀 <strong>FreeThumbnailPreview Lite (Open Source)</strong> — Want AI Vision Heatmaps, Safe-Zone Collision Radar & MaxRes Downloader?</span>
+      <a href="https://freethumbnailpreview.com" class="banner-btn" target="_blank" rel="noopener">Launch Full Suite Free →</a>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="https://freethumbnailpreview.com" class="brand">
+        <span class="brand-icon">▶</span>
+        <span class="brand-text">FreeThumbnailPreview <span class="badge">Lite</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="https://freethumbnailpreview.com" target="_blank" rel="noopener">Official Web App</a>
+        <a href="https://github.com/chandgg529-collab/freethumbnailpreview" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero-section">
+      <span class="hero-badge">Open Source Creator Tool</span>
+      <h1>Preview Thumbnails Before You Publish</h1>
+      <p class="hero-subtitle">Upload your thumbnail and test your title to see exactly how your packaging looks on Desktop and Mobile feeds.</p>
+    </section>
+
+    <!-- Controls Bar -->
+    <section class="controls-panel">
+      <div class="input-grid">
+        <div class="control-group file-upload-group">
+          <label>Thumbnail Image</label>
+          <div class="upload-box" id="dropZone">
+            <input type="file" id="imageInput" accept="image/png, image/jpeg, image/webp" hidden>
+            <div class="upload-content">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span id="uploadLabel">Click or drop image (1280x720)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="titleInput">Video Title</label>
+          <input type="text" id="titleInput" placeholder="Enter your high CTR YouTube video title..." value="I Built a Million Dollar SaaS in 30 Days (Step-by-Step Blueprint)">
+          <div class="char-count"><span id="charCount">66</span> characters</div>
+        </div>
+
+        <div class="control-group">
+          <label for="channelInput">Channel Name</label>
+          <input type="text" id="channelInput" placeholder="Channel Name" value="Chandra Dev">
+        </div>
+      </div>
+
+      <div class="filters-bar">
+        <button type="button" class="filter-toggle" id="btnBlur">
+          <span>👓 Blur / Squint Test</span>
+        </button>
+        <button type="button" class="filter-toggle" id="btnGrayscale">
+          <span>🌗 Grayscale Contrast</span>
+        </button>
+        <button type="button" class="filter-toggle reset-btn" id="btnReset">
+          <span>↺ Reset Controls</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Previews Grid -->
+    <section class="previews-section">
+      <h2>Live Layout Previews</h2>
+      <div class="preview-layout-grid">
+        
+        <!-- Desktop Card Preview -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <h3>Desktop Home Feed</h3>
+            <span class="preview-tag">360 × 202 px</span>
+          </div>
+          <div class="yt-desktop-wrapper">
+            <div class="yt-thumb-box" id="desktopThumbBox">
+              <img id="desktopThumb" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1280&q=80" alt="Thumbnail Preview">
+              <span class="yt-duration">14:28</span>
+            </div>
+            <div class="yt-meta-row">
+              <div class="yt-avatar">C</div>
+              <div class="yt-info">
+                <h4 class="yt-title" id="desktopTitle">I Built a Million Dollar SaaS in 30 Days (Step-by-Step Blueprint)</h4>
+                <div class="yt-subtext" id="desktopChannel">Chandra Dev</div>
+                <div class="yt-subtext">142K views • 3 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Feed Preview -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <h3>Mobile App View</h3>
+            <span class="preview-tag">Full Width</span>
+          </div>
+          <div class="yt-mobile-wrapper">
+            <div class="yt-thumb-box" id="mobileThumbBox">
+              <img id="mobileThumb" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1280&q=80" alt="Thumbnail Preview">
+              <span class="yt-duration">14:28</span>
+            </div>
+            <div class="yt-mobile-meta">
+              <div class="yt-avatar small">C</div>
+              <div class="yt-info">
+                <h4 class="yt-title mobile" id="mobileTitle">I Built a Million Dollar SaaS in 30 Days (Step-by-Step Blueprint)</h4>
+                <div class="yt-subtext"><span id="mobileChannel">Chandra Dev</span> • 142K views • 3 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Upstream Comparison Notice -->
+    <section class="upgrade-card">
+      <div class="upgrade-text">
+        <h3>Need Deep Diagnostics? Try FreeThumbnailPreview Pro</h3>
+        <p>Our production cloud version runs on client-side computer vision algorithms without sending any of your unreleased images to servers.</p>
+        <ul class="feature-checklist">
+          <li>✓ <strong>AI Visual Attention Heatmap:</strong> See where viewers look first</li>
+          <li>✓ <strong>Safe-Zone Collision Radar:</strong> Ensure timestamps never cover key graphics</li>
+          <li>✓ <strong>MaxRes Thumbnail Downloader:</strong> Grab original 1280x720 cover art</li>
+          <li>✓ <strong>2026 YouTube Money Calculator:</strong> Real-time RPM profit estimators</li>
+          <li>✓ <strong>Title Truncation Spectrum:</strong> Eliminate mobile ellipses cutoffs</li>
+        </ul>
+      </div>
+      <div class="upgrade-action">
+        <a href="https://freethumbnailpreview.com" class="primary-btn" target="_blank" rel="noopener">Go to FreeThumbnailPreview.com →</a>
+        <span class="subtext">100% Free • No Sign-up Required</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2026 FreeThumbnailPreview Lite. Open source project authored by <a href="https://github.com/chandgg529-collab" target="_blank" rel="noopener">Chandra G.</a></p>
+      <div class="footer-links">
+        <a href="https://freethumbnailpreview.com" target="_blank" rel="noopener">Production Suite</a>
+        <a href="https://github.com/chandgg529-collab/freethumbnailpreview" target="_blank" rel="noopener">GitHub Source</a>
+        <a href="https://freethumbnailpreview.com/privacy-policy.html" target="_blank" rel="noopener">Privacy</a>
+        <a href="https://freethumbnailpreview.com/terms-of-service.html" target="_blank" rel="noopener">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
